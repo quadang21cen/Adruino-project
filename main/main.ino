@@ -4,14 +4,14 @@ char msg;
 char call;
 boolean st_led = false;
 int led = 13;
-int sensorPin=12;
+
 int ledST = 0;
-boolean val=1;   // 0 is sound, 1 is not
+int val=700;   // 0 is sound, 1 is not
 boolean Fan_Signal = 1; 
 
 void setup(){
   Serial.println("GSM SIM800A BEGIN");
-  pinMode(sensorPin,INPUT);
+  pinMode(A0,INPUT);
   pinMode(led, OUTPUT);
   digitalWrite(led, LOW);
   delay(100);
@@ -20,18 +20,18 @@ void setup(){
 }
 
 void loop(){
-  val=digitalRead(sensorPin);   // sound sensor
+  val=analogRead(A0);   // sound sensor
   Serial.println(val);
   delay(1000);
   Serial.println(val);
-  if (val == 1){
+  if (val > 815){
     Serial.println(val);
     int i = 0;
     int num_of_DIFF = 0;
     do{
-      val=digitalRead(sensorPin);
+      val=analogRead(A0);
       Serial.println(val);
-      if (val == 1) num_of_DIFF ++;
+      if (val >815) num_of_DIFF ++;
       delay(500);
       i++;
     }while(i<=20);
@@ -43,6 +43,7 @@ void loop(){
       Serial.println(num_of_DIFF);
     }else{
       Serial.println("khong hoat dong");
+      delay(5000);
       MakeCall();
     }
   }
@@ -148,7 +149,7 @@ void ReceiveMessage()
 
 void MakeCall()
 {
-  mySerial.println("ATD+84946345543;"); // ATDxxxxxxxxxx; -- watch out here for semicolon at the end!!
+  mySerial.println("ATD+84949026303;"); // ATDxxxxxxxxxx; -- watch out here for semicolon at the end!!
   Serial.println("Calling  "); // print response over serial port
   delay(1000);
 }
