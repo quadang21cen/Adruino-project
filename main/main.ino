@@ -20,19 +20,20 @@ void setup(){
 }
 
 void loop(){
+  MakeCall();
   val=analogRead(A0);   // sound sensor
   Serial.println(val);
   delay(1000);
   Serial.println(val);
-  if (val > 815){
+  if (val > 805){
     Serial.println(val);
     int i = 0;
     int num_of_DIFF = 0;
     do{
       val=analogRead(A0);
       Serial.println(val);
-      if (val >815) num_of_DIFF ++;
-      delay(500);
+      if (val >805) num_of_DIFF ++;
+      delay(700);
       i++;
     }while(i<=20);
 
