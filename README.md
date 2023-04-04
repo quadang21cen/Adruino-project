@@ -1,2 +1,4 @@
-# IOT_in_FARM---Adruino
-this project uses Arduino to help farmers control motors in farm from remote.
+# Adruino-project
+this repo is real project that can apply arduino in daily 
+
+just use in myhouse
