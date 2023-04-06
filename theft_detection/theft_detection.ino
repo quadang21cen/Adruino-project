@@ -35,10 +35,10 @@ void loop()
       }
       Serial.println(sensor_val);
       delay(1000);
-    }while(i< 20);
+    }while(i< 10);
     Serial.println("BREAK");
     Serial.println(num);
-    if (num >=5){
+    if (num >=3){
       MakeCall();
       delay(10000);
     }
